@@ -1,0 +1,122 @@
+#menu{
+
+	/*background: url(../img/pexels-photo-105234.jpeg) center center no-repeat; 
+	background-size: cover;*/
+input[type=checkbox] {
+    zoom: 2;
+}
+
+	.item{
+		float: right;
+		font-size: 26px;
+		margin-top: 25px;
+
+   i > input {
+    padding: 3px 0px;
+    border: 1px dotted #ccc;
+    border-radius: 10px;
+    margin-left: 3px;
+  }
+		
+
+	}
+	form{
+		padding-bottom: 20px;
+		input{
+			font-size: 10px;
+		}
+	}
+ label{
+ 	font-size: 22px;
+  	color: black;
+  }
+  i{
+  	color: gray;
+  }
+	button{
+		font-size: 20px;
+		margin-left: 151px;
+		padding: 10px 25px;
+		background: none;
+		color: white;
+		border:2px solid white;
+		border-radius: 30px;
+		&:hover{
+			color: darkred;
+			border:3px solid darkred;
+		}
+	}
+.masthead {
+  text-align: center;
+  color: white;
+}
+.masthead .mybtn{
+	    font-size: 20px;
+		padding: 10px 30px;
+		background: none;
+		color: white;
+		border:2px solid white;
+		border-radius: 30px;
+		&:hover{
+		
+			color: darkred;
+			border:3px solid darkred;
+		}
+
+}
+
+.masthead .intro-text {
+  padding-top: 150px;
+  padding-bottom: 100px;
+}
+
+.masthead .intro-text .intro-lead-in {
+  font-size: 22px;
+  font-style: italic;
+  line-height: 22px;
+  margin-bottom: 25px;
+  font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.masthead .intro-text .intro-heading {
+  font-size: 50px;
+  font-weight: 500;
+   font-style: italic;
+  line-height: 50px;
+  margin-bottom: 25px;
+  color:#edf2f9;
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+@media (min-width: 468px) {
+  .masthead .intro-text {
+    padding-top: 300px;
+    padding-bottom: 200px;
+  }
+  label{
+  	color: #282828;
+  }
+  i{
+  	color: #282828;
+  }
+  .masthead .intro-text .intro-lead-in {
+    font-size: 40px;
+    font-style: italic;
+    line-height: 40px;
+    margin-bottom: 25px;
+    font-family: 'Droid Serif', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  .masthead .intro-text .intro-heading {
+    font-size: 65px;
+    font-weight: 700;
+    line-height: 75px;
+    margin-bottom: 50px;
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+}
+
+
+
+
+
+}

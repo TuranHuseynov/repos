@@ -1,0 +1,220 @@
+﻿@model Travel.ViewModel.MyModel
+@{
+    ViewBag.Title = "Index";
+    if (Session["id"] == null)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_UserLayout.cshtml";
+    }
+
+}
+
+<div id="menu"  style="background: url(../Upload/@Model._menu[0].menu_backround) center center no-repeat; 
+  background-size: cover; 	border-sizing: border-box;
+	background-attachment: fixed;">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">_</div>
+            <div class="col-md-7 col-md-push-5 col-xs-12">
+                <div class="item">
+                    <form cla7s="text-center" method="post" action="/Home/AllTravel">
+                        <i class="fa fa-map-marker" aria-hidden="true">
+                            <label>From :</label><input type="text" id="search" name="travel_from" value="">
+                        </i><br>
+                        <i class="fa fa-map-marker" aria-hidden="true">
+                            <label>To   :</label>
+                            <input type="text" name="travel_to" style="margin-left: 32px;margin-top: 15px;">
+                        </i><br><br>
+
+                        <button type="submit" class="btn btn-lg">Search Travel</button>
+                    </form>
+                </div>
+            </div>
+
+
+
+            <div class="masthead">
+                <div class="container">
+                    <div class="intro-text">
+                        <div class="intro-lead-in">@Model._menu[0].menu_content</div>
+                        <div class="intro-heading text-uppercase">@Model._menu[0].menu_text</div>
+                        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger mybtn" href="/Home/AllTravel">All Travel</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</div>
+
+<div class="clearfix"></div>
+<hr>
+
+<section id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading text-uppercase">Xidmetlerimiz</h2>
+                <h3 class="section-subheading text-muted">
+                    sizə ən sərfəli xidmət təklif edirik
+                </h3><hr>
+            </div>
+        </div>
+        <div class="row text-center">
+
+            @foreach (var item in Model._service)
+    {
+        <div class="col-md-4 col-lg-4 col-xs-12">
+            <span class="fa-stack fa-4x">
+                <i class="@item.serv_icons"></i>
+            </span>
+            <h4>@item.serv_header</h4>
+            <p class="text-muted">@item.serv_content.Substring(0, 60)</p>
+            <p class="text-right"><a href="/Home/Blog/@item.service_id">daha ətraflı ...</a></p>
+        </div>
+
+
+
+}
+
+        </div>
+    </div>
+</section>
+
+
+
+<hr style=" border-top: 1px dotted darkblue;">
+<div class="clearfix"></div>
+
+
+<section id="carousel-example-generic" class="testimonial-section carousel slide" data-ride="carousel">
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 text-center" >
+                <h2 class="comment section-heading text-uppercase">Rəyləriniz</h2>
+            </div>
+        </div>
+
+        <div class="carousel-inner" role="listbox" style="height: 226px;">
+            <div class="item active">
+                <div class="row">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>
+                    <div class="col-md-6  col-md-offset-3 col-lg-6">
+                        <img src="~/Upload/@Model._gallery[0].img_src" class="user">
+                        <h4>Turan Huseynov</h4>
+                        <p>Bele cox bekara saytdi </p>
+                    </div>
+                </div>
+
+            </div>
+            <div class="item">
+                <div class="row">
+                    @foreach (var item in Model._comment)
+                {
+                    <div class="col-md-6 col-md-offset-3 col-lg-6">
+                        <img src="~/Upload/@item.User.user_img" class="user">
+                        <h4>@item.User.user_full_name</h4>
+                        <p>@item.comment_text</p>
+                    </div>
+
+            }
+                </div>
+            </div>
+            <div>
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<hr style=" border-top: 1px dotted darkblue;">
+
+
+<div class="clearfix"></div>
+
+<section id="galery">x
+    <div class="container">
+
+        <h1 class="text-center" style="font-style: italic;">Sizdən Gələnlər</h1>
+        <hr>
+
+
+        <div class="tz-gallery">
+
+            <div class="row">
+                @if (Session["id"] == null)
+    {
+            foreach (var item in Model._gallery)
+{
+
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <a class="lightbox" href="single.html">
+                        <img src="~/Upload/@item.img_src" alt="Park">
+                    </a>
+                    <div class="caption">
+                        <h3>@item.User.user_full_name</h3>
+                        <p>@item.galery_comment.Substring(3, 20)</p>
+                        <p class="text-right"><a href="/Home/Post/@item.galery_id">daha ətraflı ...</a></p>
+                    </div>
+                </div>
+            </div>
+                    }
+
+                }
+                else
+                {
+                    foreach (var item in Model._gallery)
+{
+
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <a class="lightbox" href="single.html">
+                        <img src="~/Upload/@item.img_src" alt="Park">
+                    </a>
+                    <div class="caption">
+                        <h3>@item.User.user_full_name</h3>
+                        <p>@item.galery_comment.Substring(3, 4)</p>
+                        <p class="text-right"><a href="/Home/Post/@item.galery_id">daha ətraflı ...</a></p>
+                    </div>
+                </div>
+            </div>
+                    }
+            <div class="row">
+               <h2 class="text-center"><a href="/Home/PhotoGallery"><button>Yukle</button></a></h2>
+                
+            </div>
+                   
+                }
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<div class="clearfix"></div>
+
+

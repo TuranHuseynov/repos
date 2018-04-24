@@ -1,0 +1,101 @@
+﻿@model Travel.ViewModel.MyModel
+@{
+    ViewBag.Title = "Index";
+    if (Session["id"] == null)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_UserLayout.cshtml";
+    }
+
+}
+<section id="travel">
+    <h1 class="text-center">All Travels</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="iteminput">
+                    <label class="text-center">Axtar</label>
+                    <input type="text" class="text-center" id="searchdata">
+                </div>
+            </div>
+        </div>
+    </div><hr />
+
+    <div class="container">
+        <div class="row" id="lody">
+            @foreach (var item in Model._travell)
+            {
+                using (Html.BeginForm("Join", "Home"))
+                {
+                    <div class="row">
+                        <div class="col-md-4 col-xs-10">
+                            <img class="img-responsive" src="~/Upload/@item.User.user_img">
+                        </div>
+                        <div class="col-md-4 col-xs-10">
+                            <h2>@item.User.user_full_name</h2>
+                            <h4>
+                                <label>İstiqamət  :</label>
+                                <i class="fa fa-map-marker" aria-hidden="true"></i> @item.travel_from <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+                                <i class="fa fa-map-marker" aria-hidden="true"></i> @item.travel_to
+                            </h4>
+                            <p><label>Vaxt:  <i class="fa fa-clock-o" aria-hidden="true">@item.travel_date</i></label></p>
+                            <p><label>Çıxış nöqtəsi:  <i class="fa fa-map-marker" aria-hidden="true">@item.travel_access_point</i></label></p>
+                            <p class="text-right"><a href="/Home/travelPost/@item.travel_id">daha ətraflı...</a></p>
+                        </div>
+                        <div class="col-md-4 col-xs-10">
+                            <input type="hidden" name="joinuser" value="@item.travel_user_id" />
+                            <div class="price"><label>Qiymət: <i class="fa fa-usd"></i> <bold>@item.travel_price</bold></label></div><br>
+                            <button type="submit" class="btn btn-primary" id="joinbtn">Qoşul</button>
+
+                        </div>
+
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</section>
+
+
+
+<div class="clearfix"></div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+
+
+<script>
+    $(document).ready(function (e) {
+
+        var b;
+        $("#searchdata").keyup(function (e) {
+            b = $("#searchdata").val();
+            console.log(b)
+            $.ajax({
+                type: "get",
+                data: {
+                    search: b,
+                },
+                url: "http://localhost:58024/Home/ResultSearch",
+                contentType: "Html",
+                success: function (response) {
+                    $("#lody").html(response)
+                },
+                error: function () {
+                    alert("islemir")
+                }
+            })
+        })
+
+
+    });
+
+
+    $("#joinbtn").on("click", function () {
+
+        alert("siz sorgun gonderdiniz");
+
+    })
+</script>

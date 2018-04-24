@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "AddTravel";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+<header id="header_add">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading text-uppercase">Add Your Travel Plan</h2>
+                <h3 class="section-subheading text-primary">Lorem ipsum dolor sit amet consectetur.</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <form id="contactForm" name="sentMessage" novalidate action="~/Home/AddTravel" method="post">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input class="form-control" type="text" placeholder="From *" name="from" required data-validation-name=" " required-message="Please enter your location.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" placeholder="To *" name="to" required data-validation-name=" " required-message="Please enter your email location.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" placeholder="Access point *" name="accsess" required data-validation-name=" " required-message="Please enter your Access point.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" type="text" placeholder="Price *" name="price" required data-validation-name=" " required-message="Please enter your phone number.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <textarea class="form-control"  placeholder="Your Notes and Conditions*" name="note" required data-validation-name=" " required-message="Please enter a message."></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+
+                                <button class="btn btn-primary btn-xl text-uppercase" type="submit">Add</button>
+
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-lg-12 text-center">
+                            <div id="success"></div>
+                        </div>
+                    </div>
+                </form>
+                <button class="btn btn-primary btn-xl text-uppercase" type="submit"><a href="/Home/Index">Back</a></button>
+
+            </div>
+        </div>
+    </div>
+</header>
+<div class="clearfix"></div>
+

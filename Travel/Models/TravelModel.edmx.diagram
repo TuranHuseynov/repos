@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="955a759a822e439597f7e0a0d260e2a6" Name="Diagram1" ZoomLevel="72">
+        <EntityTypeShape EntityType="TravelModel.Comment" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelModel.Gallery" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelModel.Gender" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelModel.Menu" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelModel.Navbar" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelModel.Service" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelModel.Travel_Type" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TravelModel.User" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="TravelModel.FK_Comment_User" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelModel.FK_Gallery_User" ManuallyRouted="false" />
+        <AssociationConnector Association="TravelModel.FK_User_Gender" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TravelModel.Tra" Width="3.5" PointX="4.875" PointY="10.125" />
+        <AssociationConnector Association="TravelModel.FK_Travell_User1" />
+        <EntityTypeShape EntityType="TravelModel.sysdiagram" Width="1.5" PointX="8.375" PointY="6.75" />
+        <AssociationConnector Association="TravelModel.FK_Travel_Type_Travel_Type" />
+        <EntityTypeShape EntityType="TravelModel.Blog" Width="1.5" PointX="9.375" PointY="9.75" />
+        <EntityTypeShape EntityType="TravelModel.Postt" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="TravelModel.Contact" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="TravelModel.Message" Width="1.5" PointX="10.75" PointY="3.75" />
+        <EntityTypeShape EntityType="TravelModel.Join" Width="1.5" PointX="5.25" PointY="14.625" />
+        <AssociationConnector Association="TravelModel.FK_Join_User" />
+        <AssociationConnector Association="TravelModel.FK_Joined_User1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

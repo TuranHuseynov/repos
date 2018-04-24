@@ -1,0 +1,83 @@
+﻿@model Travel.ViewModel.MyModel
+@{
+    ViewBag.Title = "Index";
+    if (Session["id"] == null)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_UserLayout.cshtml";
+    }
+
+}
+
+<header id="single">
+    <div class="container-fluid text-center">
+        <div class="row content">
+
+            @foreach (var item in Model._gallery)
+            {
+                <div class="col-sm-4">
+                    <img class="img-fluid rounded" src="~/Upload/@item.img_src" style="width: 340px; height: 300px;" alt="">
+
+                </div>
+                <div class="col-sm-5">
+                    <h1>@item.User.user_full_name</h1>
+                    <p>@item.galery_comment</p>
+                    <hr>
+
+                </div>
+
+            }
+            <div class="col-sm-2 sidenav">
+                <div class="well">
+                    <div class="card my-4">
+                        <h5 class="card-header">Search</h5>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search for...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-secondary" type="button">Go!</button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card my-4">
+                        <div class="card mb-4 text-center wow fadeIn">
+
+                            <div class="card-header">Do you want to get informed about new articles?</div>
+
+                            <!--Card content-->
+                            <div class="card-body">
+
+                                <!-- Default form login -->
+                                <form>
+
+                                    <!-- Default input email -->
+                                    <label for="defaultFormEmailEx" class="grey-text">Your email</label>
+                                    <input type="email" id="defaultFormLoginEmailEx" class="form-control">
+
+                                    <br>
+
+                                    <!-- Default input password -->
+                                    <label for="defaultFormNameEx" class="grey-text">Your name</label>
+                                    <input type="text" id="defaultFormNameEx" class="form-control">
+
+                                    <div class="text-center mt-4">
+                                        <button class="btn btn-info btn-md" type="submit">Login</button>
+                                    </div>
+                                </form>
+                                <!-- Default form login -->
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</header>

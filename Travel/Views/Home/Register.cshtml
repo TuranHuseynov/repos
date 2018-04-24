@@ -1,0 +1,105 @@
+﻿@model Travel.ViewModel.MyModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+</head>
+<body style="background-color:aliceblue;">
+
+    <div class="container" style="background-color:aliceblue">
+        <form class="form-horizontal" action='~/Home/Register' method="post">
+            <fieldset>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="control-group">
+                            <!-- Username -->
+                            <label class="control-label" for="username">Username</label>
+                            <div class="controls">
+                                <input type="text" id="username" name="fullname" placeholder="" class="input-xlarge">
+                                <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <!-- E-mail -->
+                            <label class="control-label" for="email">E-mail</label>
+                            <div class="controls">
+                                <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
+                                <p class="help-block">Please provide your E-mail</p>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <!-- Password-->
+                            <label class="control-label" for="password">Password</label>
+                            <div class="controls">
+                                <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+                                <p class="help-block">Password should be at least 4 characters</p>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <!-- Password -->
+                            <label class="control-label" for="password_confirm">Photo</label>
+                            <div class="controls">
+                                <input type="file" id="password_confirm" name="photo" placeholder="" class="input-xlarge">
+                                <p class="help-block">Please provide your Photo</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="control-group">
+                            <!-- Password -->
+                            <label class="control-label" for="password_confirm">Car model</label>
+                            <div class="controls">
+                                <input type="text" id="password_confirm" name="carmodel" placeholder="" class="input-xlarge">
+                                <p class="help-block">Please provide your Car Model</p>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <!-- Password -->
+                            <label class="control-label" for="password_confirm">Car Marka</label>
+                            <div class="controls">
+                                <input type="text" id="password_confirm" name="carmarka" placeholder="" class="input-xlarge">
+                                <p class="help-block">Please provide your Car Marka</p>
+                            </div>
+                        </div>
+                        @*<div class="control-group">
+                            <label class="control-label" for="password_confirm">Gender</label>
+                            <div class="controls">
+                                <input type="" id="password_confirm" name="carmodel" value="@Model._user[0].Gender.gender_name" placeholder="" class="input-xlarge">
+                                <p class="help-block">Please provide your Gender type</p>
+                            </div>
+                        </div>*@
+                        <div class="control-group">
+                            <!-- Password -->
+                            <label class="control-label" for="password_confirm">Phone</label>
+                            <div class="controls">
+                                <input type="text" id="password_confirm" name="phone" placeholder="" class="input-xlarge">
+                                <p class="help-block">Please provide your Phone</p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <!-- Button -->
+                            <div class="controls">
+
+                                <button class="btn btn-success">Register</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
+

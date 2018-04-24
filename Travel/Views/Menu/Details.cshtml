@@ -1,0 +1,43 @@
+﻿@model Travel.Models.Menu
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Menu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.menu_backround)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.menu_backround)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.menu_text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.menu_text)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.menu_content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.menu_content)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.menu_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

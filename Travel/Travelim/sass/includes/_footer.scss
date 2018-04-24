@@ -1,0 +1,27 @@
+#footer {
+    background: #243a51;
+
+   
+    /*ul>li>i>a{
+        margin-left:50px;
+        list-style: none;
+        color:red;
+        font-size: 24px;
+        transition: all 0.1s linear;
+
+        &:hover {
+            font-size: 26px;
+        }
+    }*/
+    @media screen and (max-width: 767px) {
+        img {
+            position: relative;
+            bottom: 42px;
+        }
+
+        .dic {
+            position: relative;
+            bottom: 92px;
+        }
+    }
+}

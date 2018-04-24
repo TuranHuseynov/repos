@@ -1,0 +1,43 @@
+﻿@model Travel.Models.Service
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Service</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.serv_header)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.serv_header)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.serv_content)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.serv_content)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.serv_icons)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.serv_icons)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.service_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

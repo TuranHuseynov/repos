@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TravelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Blog">
+    <Key>
+      <PropertyRef Name="blog_id" />
+    </Key>
+    <Property Name="blog_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="blog_title" Type="nvarchar" MaxLength="200" />
+    <Property Name="blog_content" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="comment_id" />
+    </Key>
+    <Property Name="comment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="comment_user_id" Type="int" />
+    <Property Name="comment_text" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="contact_id" />
+    </Key>
+    <Property Name="contact_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="contact_phone" Type="nvarchar" MaxLength="200" />
+    <Property Name="contact_email" Type="nvarchar" MaxLength="200" />
+    <Property Name="contact_address" Type="nvarchar(max)" />
+    <Property Name="contact_work_time" Type="nvarchar" MaxLength="50" />
+    <Property Name="contact_facebook" Type="nvarchar(max)" />
+    <Property Name="contact_intagram" Type="nvarchar(max)" />
+    <Property Name="contact_twitter" Type="nvarchar(max)" />
+    <Property Name="contact_google" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Gallery">
+    <Key>
+      <PropertyRef Name="galery_id" />
+    </Key>
+    <Property Name="galery_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="galery_user_id" Type="int" />
+    <Property Name="img_src" Type="nvarchar(max)" />
+    <Property Name="galery_comment" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="gender_id" />
+    </Key>
+    <Property Name="gender_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="gender_name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Join">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="joined_user_id" Type="int" />
+    <Property Name="join_user_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="menu_id" />
+    </Key>
+    <Property Name="menu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="menu_backround" Type="nvarchar" MaxLength="500" />
+    <Property Name="menu_text" Type="nvarchar(max)" />
+    <Property Name="menu_content" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="message_id" />
+    </Key>
+    <Property Name="message_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="message_email" Type="nvarchar" MaxLength="500" />
+    <Property Name="message_content" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Navbar">
+    <Key>
+      <PropertyRef Name="nav_id" />
+    </Key>
+    <Property Name="nav_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nav_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="nav_url" Type="nvarchar" MaxLength="450" />
+  </EntityType>
+  <EntityType Name="Postt">
+    <Key>
+      <PropertyRef Name="single_id" />
+    </Key>
+    <Property Name="single_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="single_img" Type="nvarchar" MaxLength="200" />
+    <Property Name="single_title" Type="nvarchar" MaxLength="200" />
+    <Property Name="single_content" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="service_id" />
+    </Key>
+    <Property Name="service_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="serv_header" Type="nvarchar" MaxLength="500" />
+    <Property Name="serv_content" Type="nvarchar(max)" />
+    <Property Name="serv_icons" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Tra">
+    <Key>
+      <PropertyRef Name="travel_id" />
+    </Key>
+    <Property Name="travel_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="travel_type_id" Type="int" />
+    <Property Name="travel_user_id" Type="int" />
+    <Property Name="travel_from" Type="nvarchar" MaxLength="600" />
+    <Property Name="travel_to" Type="nvarchar" MaxLength="600" />
+    <Property Name="travel_access_point" Type="nvarchar" MaxLength="600" />
+    <Property Name="travel_price" Type="nvarchar" MaxLength="50" />
+    <Property Name="travel_notice" Type="nvarchar(max)" />
+    <Property Name="travel_date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Travel_Type">
+    <Key>
+      <PropertyRef Name="t_type_id" />
+    </Key>
+    <Property Name="t_type_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="t_ttype_name" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_full_name" Type="nvarchar" MaxLength="200" />
+    <Property Name="user_img" Type="nvarchar" MaxLength="500" />
+    <Property Name="user_email" Type="nvarchar" MaxLength="300" />
+    <Property Name="user_password" Type="nvarchar" MaxLength="300" />
+    <Property Name="user_age" Type="int" />
+    <Property Name="user_gender_id" Type="int" />
+    <Property Name="user_phone" Type="nvarchar" MaxLength="100" />
+    <Property Name="user_city" Type="nvarchar" MaxLength="200" />
+    <Property Name="user_fb_link" Type="nvarchar(max)" />
+    <Property Name="user_instagram_link" Type="nvarchar(max)" />
+    <Property Name="user_twitter_link" Type="nvarchar(max)" />
+    <Property Name="user_car_marka" Type="nvarchar" MaxLength="50" />
+    <Property Name="user_car_model" Type="nvarchar" MaxLength="50" />
+    <Property Name="user_car_place" Type="int" />
+  </EntityType>
+  <Association Name="FK_Comment_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="comment_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gallery_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Gallery" Type="Self.Gallery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Gallery">
+        <PropertyRef Name="galery_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Join_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Join" Type="Self.Join" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Join">
+        <PropertyRef Name="join_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Joined_User1">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Join" Type="Self.Join" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Join">
+        <PropertyRef Name="joined_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Travel_Type_Travel_Type">
+    <End Role="Travel_Type" Type="Self.Travel_Type" Multiplicity="1" />
+    <End Role="Travel_Type1" Type="Self.Travel_Type" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Travel_Type">
+        <PropertyRef Name="t_type_id" />
+      </Principal>
+      <Dependent Role="Travel_Type1">
+        <PropertyRef Name="t_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Travell_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Tra" Type="Self.Tra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Tra">
+        <PropertyRef Name="travel_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Gender">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="gender_id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="user_gender_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TravelModelStoreContainer">
+    <EntitySet Name="Blog" EntityType="Self.Blog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gallery" EntityType="Self.Gallery" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Join" EntityType="Self.Join" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Navbar" EntityType="Self.Navbar" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Postt" EntityType="Self.Postt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Service" EntityType="Self.Service" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tra" EntityType="Self.Tra" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Travel_Type" EntityType="Self.Travel_Type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Comment_User" Association="Self.FK_Comment_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gallery_User" Association="Self.FK_Gallery_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Gallery" EntitySet="Gallery" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Join_User" Association="Self.FK_Join_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Join" EntitySet="Join" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Joined_User1" Association="Self.FK_Joined_User1">
+      <End Role="User" EntitySet="User" />
+      <End Role="Join" EntitySet="Join" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Travel_Type_Travel_Type" Association="Self.FK_Travel_Type_Travel_Type">
+      <End Role="Travel_Type" EntitySet="Travel_Type" />
+      <End Role="Travel_Type1" EntitySet="Travel_Type" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Travell_User" Association="Self.FK_Travell_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Tra" EntitySet="Tra" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Gender" Association="Self.FK_User_Gender">
+      <End Role="Gender" EntitySet="Gender" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

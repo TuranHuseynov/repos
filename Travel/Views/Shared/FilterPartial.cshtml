@@ -1,0 +1,25 @@
+﻿@model Travel.ViewModel.MyModel
+
+@foreach (var item in Model._travell)
+{
+    <div class="row">
+    <div class="col-md-4 col-xs-10">
+        <img class="img-responsive" src="~/Upload/img2.jpg">
+    </div>
+    <div class="col-md-4 col-xs-10">
+        <h2>@item.User.user_full_name</h2>
+        <h4>
+            <label>Moving  :</label>
+            <i class="fa fa-map-marker" aria-hidden="true"></i> @item.travel_from <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            <i class="fa fa-map-marker" aria-hidden="true"></i> @item.travel_to
+        </h4>
+        <p><label>Time:  <i class="fa fa-clock-o" aria-hidden="true">@item.travel_date</i></label></p>
+        <p><label>Accsess point:  <i class="fa fa-map-marker" aria-hidden="true">@item.travel_access_point</i></label></p>
+        <p class="text-right"><a href="#">read more...</a></p>
+    </div>
+    <div class="col-md-4 col-xs-10">
+        <div class="price"><label>Price: <i class="fa fa-usd"></i> <bold>@item.travel_price</bold></label></div><br>
+        <button class="btn btn-primary">Join</button>
+    </div>
+        </div>
+}

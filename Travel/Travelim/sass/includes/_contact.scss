@@ -1,0 +1,43 @@
+#contact {
+  background-color: #272833;
+
+
+
+button{
+  margin-bottom: 60px;
+    font-size: 20px;
+    padding: 4px 31px;
+    background: none;
+    color: white;
+    border:2px solid white;
+    border-radius: 30px;
+    &:hover{
+      color: darkred;
+      border:3px solid darkred;
+    }
+  }
+
+.section-heading {
+  color: white;
+}
+.form-group {
+  margin-bottom: 25px;
+}
+.form-group input,.form-group textarea {
+  padding: 15px;
+}
+.form-group input.form-control {
+  height: auto;
+}
+
+.form-group textarea.form-control {
+  height: 220px;
+}
+.form-control:focus {
+  border-color: #fed136;
+  box-shadow: none;
+}
+
+
+
+}

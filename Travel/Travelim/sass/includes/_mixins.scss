@@ -1,0 +1,21 @@
+@mixin Heading($afterPos){
+	font-size:2em;
+	font-weight:bold;
+	text-transform:uppercase;
+	display:inline-block;
+	padding:15px;
+	position:relative;
+	margin:40px 400px;
+	&:after{
+		content:"";
+			position:absolute;
+			left:$afterPos;
+			width:50px;
+			height:2px;
+			background:black;
+			display:inline-block;
+			margin:8px 65px;
+
+	}
+
+}

@@ -1,0 +1,112 @@
+﻿@model IEnumerable<Travel.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.user_full_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user_img)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user_email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user_password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user_age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user_phone)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.user_city)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user_fb_link)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user_instagram_link)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user_twitter_link)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user_car_marka)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user_car_model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.user_car_place)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender.gender_name)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_full_name)
+        </td>
+        <td>
+          <img src="~/Upload/@item.user_img" style="width:80px; height:80px;" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_phone)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.user_city)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_fb_link)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_instagram_link)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_twitter_link)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_car_marka)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_car_model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.user_car_place)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender.gender_name)
+        </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.user_id }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Details", "Details", new { id = item.user_id }, new { @class = "btn btn-info" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.user_id }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

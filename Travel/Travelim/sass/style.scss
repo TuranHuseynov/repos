@@ -1,0 +1,62 @@
+#header_add{
+background: #2a313d;
+
+
+.section-heading {
+  color: red;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+.form-group input,
+.form-group textarea {
+  padding: 10px;
+}
+button{
+	margin-bottom: 20px;
+		font-size: 20px;
+		padding: 4px 31px;
+		background: none;
+		color: white;
+		border:2px solid white;
+		border-radius: 30px;
+		&:hover{
+			color: darkred;
+			border:3px solid darkred;
+		}
+	}
+.form-group input.form-control {
+  height: auto;
+}
+
+ .form-group textarea.form-control {
+  height: 230px;
+}
+
+ .form-control:focus {
+  border-color: #fed136;
+  box-shadow: none;
+}
+
+
+
+}
+  #map {
+        height: 350px;
+        width: 100%;
+       }
+
+@import "includes/mixins";
+@import "includes/mynav";
+@import "includes/service";
+@import "includes/galery";
+@import "includes/footer";
+@import "includes/slider";
+@import "includes/login";
+@import "includes/register";
+@import "includes/alltravel";
+@import "includes/menu";
+@import "includes/contact";
+@import "includes/single";
+@import "includes/profile";

@@ -1,0 +1,91 @@
+﻿@model Travel.ViewModel.MyModel
+@{
+    ViewBag.Title = "Index";
+    if (Session["id"] == null)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_UserLayout.cshtml";
+    }
+
+}
+<section class="static_area">
+    <div class="container">
+        <div class="static_inner">
+            <div class="row">
+                @foreach (var item in Model._service)
+                {
+                    <div class="col-lg-9">
+                        <div class="static_main_content">
+                            <h1>@item.serv_header</h1>
+                            <div class="static_img">
+                                <img class="img-fluid img-responsive" src="~/Upload/logo.png" style="width: 700px; height: 300px;" alt="">
+                            </div>
+                            <hr>
+                            <div class="static_text">
+                                <p>@item.serv_content</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="col-lg-3">
+                    <div class="right_sidebar_area">
+                        <aside class="right_widget r_news_widget">
+                            <div class="card my-4">
+                                <h5 class="card-header">Search</h5>
+                                <div class="card-body">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search for...">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-secondary" type="button">Go!</button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </aside>
+                        <br><hr>
+                        <aside class="right_widget r_cat_widget">
+                            <div class="card my-4">
+                                <div class="card mb-4 text-center wow fadeIn">
+
+                                    <div class="card-header">
+                                        Do you want to get extra services? <br>
+                                        Please Login
+                                    </div>
+
+                                    <div class="card-body">
+
+                                        <form>
+
+                                            <label for="defaultFormEmailEx" class="grey-text">Your email</label>
+                                            <input type="email" id="defaultFormLoginEmailEx" class="form-control">
+
+
+                                            <label for="defaultFormNameEx" class="grey-text">Your password</label>
+                                            <input type="password" id="defaultFormNameEx" class="form-control">
+                                            <br>
+
+                                            <div class="text-center mt-4">
+                                                <button class="btn btn-info btn-md" type="submit">Login</button>
+                                            </div>
+                                        </form>
+
+                                    </div>
+
+                                </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<hr>
+
+
+
+
+<div class="clearfix"></div>
+

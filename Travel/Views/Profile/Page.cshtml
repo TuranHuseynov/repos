@@ -1,0 +1,26 @@
+﻿@model Travel.ViewModel.MyModel
+@{
+                /**/
+
+                ViewBag.Title = "Page";
+                Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h2>Page</h2>
+
+@foreach (var item in Model._join)
+{
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+         <img style="width:120px; height:120px; border:1px solid; border-radius:30px;" src="~/Upload/@item.User1.user_img">
+        
+            <h2>@item.User1.user_full_name</h2>
+            <p><strong>Email :</strong>@item.User1.user_email</p>
+            <p><strong>Phone :</strong>@item.User1.user_phone</p>
+            <p><strong>Age:</strong> @item.User1.user_age</p>
+        </div>
+    </div>
+
+        
+
+        }

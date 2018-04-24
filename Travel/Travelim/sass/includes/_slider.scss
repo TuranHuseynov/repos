@@ -1,0 +1,49 @@
+#carousel-example-generic{
+		background: url(../img/metravelzad.jpeg) center center no-repeat;
+	background-size: cover;
+	display: table;
+	width: 100%;
+	background-attachment: fixed;
+	.carousel-inner{
+
+	height: 500px;
+
+}
+img{
+	width: 180px;
+	height: 193px;
+	border-radius: 90%;
+	float: left;
+	margin-right: 60px;
+	margin-bottom: 60px;
+
+}
+.comment{
+	margin-bottom: 30px;
+}
+
+p{
+	margin-bottom: 36px;
+	font-style: italic;
+	font-size: 1.4em;
+	color: white;
+}
+h4{
+	font-size: 1.8em;
+	color: white;
+}
+
+h2{
+	color: white;
+}
+ol{
+	margin-bottom: 46px;
+}
+.carousel-control{
+
+	background: none;
+	box-shadow: 0;
+	color: black;
+	margin-bottom: 80px;
+}
+}

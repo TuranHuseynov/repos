@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TravelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="comment_id" />
+    </Key>
+    <Property Name="comment_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="comment_user_id" Type="Int32" />
+    <Property Name="comment_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Comment_User" FromRole="Comment" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Gallery">
+    <Key>
+      <PropertyRef Name="galery_id" />
+    </Key>
+    <Property Name="galery_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="galery_user_id" Type="Int32" />
+    <Property Name="img_src" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="galery_comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Gallery_User" FromRole="Gallery" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="gender_id" />
+    </Key>
+    <Property Name="gender_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="gender_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_User_Gender" FromRole="Gender" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="menu_id" />
+    </Key>
+    <Property Name="menu_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="menu_backround" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="menu_text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="menu_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Navbar">
+    <Key>
+      <PropertyRef Name="nav_id" />
+    </Key>
+    <Property Name="nav_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nav_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="nav_url" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="service_id" />
+    </Key>
+    <Property Name="service_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="serv_header" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="serv_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="serv_icons" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Travel_Type">
+    <Key>
+      <PropertyRef Name="t_type_id" />
+    </Key>
+    <Property Name="t_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="t_ttype_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Travel_Type1" Relationship="TravelModel.FK_Travel_Type_Travel_Type" FromRole="Travel_Type" ToRole="Travel_Type1" />
+    <NavigationProperty Name="Travel_Type2" Relationship="TravelModel.FK_Travel_Type_Travel_Type" FromRole="Travel_Type1" ToRole="Travel_Type" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_full_name" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="user_img" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="user_email" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="user_password" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="user_age" Type="Int32" />
+    <Property Name="user_gender_id" Type="Int32" />
+    <Property Name="user_phone" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="user_city" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="user_fb_link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="user_instagram_link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="user_twitter_link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="user_car_marka" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_car_model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="user_car_place" Type="Int32" />
+    <NavigationProperty Name="Comments" Relationship="Self.FK_Comment_User" FromRole="User" ToRole="Comment" />
+    <NavigationProperty Name="Galleries" Relationship="Self.FK_Gallery_User" FromRole="User" ToRole="Gallery" />
+    <NavigationProperty Name="Gender" Relationship="Self.FK_User_Gender" FromRole="User" ToRole="Gender" />
+    <NavigationProperty Name="Tras" Relationship="TravelModel.FK_Travell_User1" FromRole="User" ToRole="Tra" />
+    <NavigationProperty Name="Joins" Relationship="TravelModel.FK_Join_User" FromRole="User" ToRole="Join" />
+    <NavigationProperty Name="Joins1" Relationship="TravelModel.FK_Joined_User1" FromRole="User" ToRole="Join" />
+  </EntityType>
+  <Association Name="FK_Comment_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="comment_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Gallery_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Gallery" Type="Self.Gallery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Gallery">
+        <PropertyRef Name="galery_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Gender">
+    <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="gender_id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="user_gender_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TravelEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Comments" EntityType="Self.Comment" />
+    <EntitySet Name="Galleries" EntityType="Self.Gallery" />
+    <EntitySet Name="Genders" EntityType="Self.Gender" />
+    <EntitySet Name="Menus" EntityType="Self.Menu" />
+    <EntitySet Name="Navbars" EntityType="Self.Navbar" />
+    <EntitySet Name="Services" EntityType="Self.Service" />
+    <EntitySet Name="Travel_Type" EntityType="Self.Travel_Type" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Comment_User" Association="Self.FK_Comment_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Gallery_User" Association="Self.FK_Gallery_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Gallery" EntitySet="Galleries" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Gender" Association="Self.FK_User_Gender">
+      <End Role="Gender" EntitySet="Genders" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <EntitySet Name="Tras" EntityType="TravelModel.Tra" />
+    <AssociationSet Name="FK_Travell_User1" Association="TravelModel.FK_Travell_User1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Tra" EntitySet="Tras" />
+    </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="TravelModel.sysdiagram" />
+    <AssociationSet Name="FK_Travel_Type_Travel_Type" Association="TravelModel.FK_Travel_Type_Travel_Type">
+      <End Role="Travel_Type" EntitySet="Travel_Type" />
+      <End Role="Travel_Type1" EntitySet="Travel_Type" />
+    </AssociationSet>
+    <EntitySet Name="Blogs" EntityType="TravelModel.Blog" />
+    <EntitySet Name="Postts" EntityType="TravelModel.Postt" />
+    <EntitySet Name="Contacts" EntityType="TravelModel.Contact" />
+    <EntitySet Name="Messages" EntityType="TravelModel.Message" />
+    <EntitySet Name="Joins" EntityType="TravelModel.Join" />
+    <AssociationSet Name="FK_Join_User" Association="TravelModel.FK_Join_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Join" EntitySet="Joins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Joined_User1" Association="TravelModel.FK_Joined_User1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Join" EntitySet="Joins" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Tra">
+    <Key>
+      <PropertyRef Name="travel_id" />
+    </Key>
+    <Property Name="travel_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" ConcurrencyMode="None" />
+    <Property Name="travel_type_id" Type="Int32" />
+    <Property Name="travel_user_id" Type="Int32" />
+    <Property Name="travel_from" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="travel_to" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="travel_access_point" Type="String" MaxLength="600" FixedLength="false" Unicode="true" />
+    <Property Name="travel_price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="travel_notice" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="travel_date" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="User" Relationship="TravelModel.FK_Travell_User1" FromRole="Tra" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Travell_User1">
+    <End Type="TravelModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="TravelModel.Tra" Role="Tra" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Tra">
+        <PropertyRef Name="travel_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Travel_Type_Travel_Type">
+    <End Type="TravelModel.Travel_Type" Role="Travel_Type" Multiplicity="1" />
+    <End Type="TravelModel.Travel_Type" Role="Travel_Type1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Travel_Type">
+        <PropertyRef Name="t_type_id" />
+      </Principal>
+      <Dependent Role="Travel_Type1">
+        <PropertyRef Name="t_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Blog">
+    <Key>
+      <PropertyRef Name="blog_id" />
+    </Key>
+    <Property Name="blog_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="blog_title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="blog_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Postt">
+    <Key>
+      <PropertyRef Name="single_id" />
+    </Key>
+    <Property Name="single_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="single_img" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="single_title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="single_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="contact_id" />
+    </Key>
+    <Property Name="contact_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="contact_phone" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="contact_email" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="contact_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="contact_work_time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="contact_facebook" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="contact_intagram" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="contact_twitter" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="contact_google" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="message_id" />
+    </Key>
+    <Property Name="message_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="message_email" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="message_content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Join">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="joined_user_id" Type="Int32" />
+    <Property Name="join_user_id" Type="Int32" />
+    <NavigationProperty Name="User" Relationship="TravelModel.FK_Join_User" FromRole="Join" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="TravelModel.FK_Joined_User1" FromRole="Join" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Join_User">
+    <End Type="TravelModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="TravelModel.Join" Role="Join" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Join">
+        <PropertyRef Name="join_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Joined_User1">
+    <End Type="TravelModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="TravelModel.Join" Role="Join" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="Join">
+        <PropertyRef Name="joined_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

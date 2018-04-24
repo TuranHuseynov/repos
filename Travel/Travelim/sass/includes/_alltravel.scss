@@ -1,0 +1,49 @@
+#travel{
+    font-size: 12px;
+    margin-top: -20px;
+    background-color: #9bbfff;
+
+
+
+    p {
+        font-size: 22px;
+    }
+
+    button {
+        padding: 6px 26px;
+    }
+
+    img {
+        width: 303px;
+        margin-bottom: 10px;
+        border: 1px solid black;
+        border-radius: 75%;
+        filter: grayscale(96%);
+        transition: 1s;
+
+        &:hover {
+            filter: grayscale(0);
+            transform: scale(1.1);
+        }
+    }
+
+    label {
+        font-size: 17px;
+    }
+
+    #travel .price {
+        margin-top: 30px;
+        font-size: 20px;
+    }
+
+    .btns {
+        margin-bottom: 20px;
+    }
+
+    @media (max-width: 400px) {
+
+        .price {
+            float: right;
+        }
+    }
+}

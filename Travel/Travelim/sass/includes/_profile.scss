@@ -1,0 +1,87 @@
+#profile{
+ background: url(../img/damla.jpeg) center center no-repeat;
+ background-size: cover;
+
+ #Hide{
+  display: none;
+ }
+ #Show{
+  display: true;
+ }
+ #data{
+  display: none;
+ }
+  button{
+		font-size: 17px;
+		padding: 6px 10px;
+		margin-top: 51px;
+		margin-left: 10px;
+    margin-bottom: 60px;
+		background: none;
+		color: white;
+		border:2px solid white;
+		border-radius: 30px;
+    transition:all 0.2s linear;
+		&:hover{
+			color: darkred;
+			border:3px solid darkred;
+		}
+	}
+    input{
+    font-size: 17px;
+    padding: 6px 10px;
+    margin-top: 51px;
+    margin-left: 10px;
+    background: none;
+    color: white;
+    border:2px solid white;
+    border-radius: 30px;
+    transition:all 0.2s linear;
+    &:hover{
+      color: darkred;
+      border:3px solid darkred;
+    }
+  }
+
+  h2{
+    color: white;
+    font-style: italic;
+  }
+  p{
+    color: white;
+  }
+  table{
+    color: white;
+  }
+
+  #item{
+  	color: white;
+  	font-size: 20px;
+    line-height: 2.5;
+  }
+  .items{
+  	margin-top: 20px;
+  }
+  .myinfo{
+  	color: white;
+  }
+  .social-icon
+    {
+        padding-top: 7px;
+        font-size: 16px;
+        text-align: center;
+        width: 32px;
+        height: 32px;
+        border: 2px solid darkred;
+        border-radius: 50%;
+        color: #777;
+        margin: 5px;
+    }
+
+    a.social-icon:hover, a.social-icon:active, a.social-icon:focus
+    {
+        text-decoration: none;
+        color: #434343;
+        border-color: #434343;
+    }
+}

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Travel.Models.Gallery>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.img_src)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.galery_comment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.user_full_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="~/Upload/@item.img_src"  style="width:100px; height:100px;"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.galery_comment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.user_full_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.galery_id }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Details", "Details", new { id = item.galery_id }, new { @class = "btn btn-info" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.galery_id }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

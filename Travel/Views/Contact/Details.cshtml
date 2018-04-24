@@ -1,0 +1,83 @@
+﻿@model Travel.Models.Contact
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Contact</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.contact_phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contact_phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contact_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contact_email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contact_address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contact_address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contact_work_time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contact_work_time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contact_facebook)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contact_facebook)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contact_intagram)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contact_intagram)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contact_twitter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contact_twitter)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contact_google)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contact_google)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.contact_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

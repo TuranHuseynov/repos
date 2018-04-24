@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Travel.Models.Menu>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.menu_backround)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.menu_text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.menu_content)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+          <img src="~/Upload/@item.menu_backround" style="width:80px;height:80px;" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.menu_text)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.menu_content)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.menu_id }, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Details", "Details", new { id = item.menu_id }, new { @class = "btn btn-info" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.menu_id }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

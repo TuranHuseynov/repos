@@ -1,0 +1,85 @@
+﻿@model Travel.ViewModel.MyModel
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_UserLayout.cshtml";
+    }
+
+
+
+<section id="profile">
+    <div class="container wrap">
+        <div class="row">
+
+            @foreach (var item in Model._user)
+            {
+            <div class="col-md-9">
+                @foreach (var item1 in Model._join)
+    {
+            <div class="col-md-12">
+                <p style="font-size:20px;">Request from : <a href="/Profile/Page/@item.user_id" style="color: black; font-size:20px;"> @item1.User1.user_full_name</a></p><hr>
+                <br>
+            </div>
+}
+                <div id="item">
+                    <p><strong>Full Name :</strong>@item.user_full_name</p>
+                    <p><strong>Email :</strong>@item.user_email</p>
+                    <p><strong>Phone :</strong>@item.user_phone</p>
+                    <p><strong>Car model :</strong> @item.user_car_marka @item.user_car_model</p>
+                </div>
+
+                <div id="data">
+                    <h2>Your Travel list</h2>
+                    <p>You can edit your travel</p>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>From</th>
+                                <th>To</th>
+                                <th>Accsess point</th>
+                                <th>Price</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var data in Model._travell)
+                {
+                    <tr>
+                        <td>@data.travel_from</td>
+                        <td>@data.travel_to</td>
+                        <td>@data.travel_access_point</td>
+                        <td>@data.travel_price</td>
+                        <td>@data.User.user_full_name</td>
+                        <td>
+                            <a href="/Profile/Delete/@data.travel_id" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+
+    }
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+            </div>
+                <div class="col-md-3 items">
+                    <img src="~/Upload/@item.user_img" class="img-responsive img-circle">
+                    <h3 style="color:white;" class="text text-center">@item.user_full_name</h3>
+                    <p style="color: lightgray;"><cite>@item.user_city<i class="glyphicon glyphicon-map-marker"></i></cite></p>
+                    <div class="text-center">
+                        <a class="fa fa-facebook social-icon" href="@item.user_fb_link" style="color: white;"></a>
+                        <a class="fa fa-twitter social-icon" href="@item.user_twitter_link" style="color: white;"></a>
+                        <a class="fa fa-linkedin social-icon" href="@item.user_instagram_link" style="color: white;"></a>
+                    </div>
+                    <button><a href="~/Profile/Edit">Edit Profile</a></button>
+                    <input type="button" id="Show" value="Show Travel">
+                    <input type="button" id="Hide" value="Hide Travel">
+                </div>
+
+            }
+
+        </div>
+    </div>
+    
+    
+</section>

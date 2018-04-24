@@ -1,0 +1,139 @@
+﻿@model Travel.ViewModel.MyModel
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Travelim/css/style.css">
+    <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7iIcc-CMmo3FdHPIobrAo2yGj4FRg1GghYtB5UTlrfxBLwam_qw">
+</head>
+<body>
+    <div class="mynav">
+        <div class="container-fluid">
+            <div class="navbar-header pull-left">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                    [-]
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/Home/Index" class="navbar-brand scroll-link" data-id="carousel1">
+                    <img src="~/Upload/download.png" style="width: 140px;
+    height: 152px;
+    position: relative;
+    bottom: 60px;
+    right: 40px;" />
+                </a>
+            </div>
+            <nav class="collapse navbar-collapse bs-navbar-collapse pull-right" role="navigation">
+                <ul class="nav navbar-nav">
+                    <li><a href="/Home/Index" class="scroll-link">Ana sehife</a></li>
+                    <li><a href="/Home/Message" class="scroll-link">Elaqe</a></li>
+                    <li><a href="@Url.Action("Index", "LoginUser")" class="scroll-link" data-id="signup">Qeydiyyat</a></li>
+                    @*<li><a href="@Url.Action("Index", "Profile")" class="scroll-link" data-id="signup">@TempData["login_btn"]</a></li>*@
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+
+
+    @RenderBody()
+
+
+
+    <div id="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3 col-xs-12 ">
+                    <h3 class="text-left">Bize mesajlariniz</h3>
+                    <p>Bu bolmede siz sayt haqqinda fikirlerinizi yazib gondere bilersiniz..</p>
+                    <div class="input-group">
+                        <form method="post" action='~/Home/Message'>
+                            <input type="text" class="form-control" name="message_content" placeholder="mesajiniz...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary submit_btn" type="submit">Gonder</button>
+                            </span>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6  col-xs-12 text-center">
+                    <ul class="text-center icons">
+                        <li><i class="fa fa-facebook"><a href="@Model._contact[0].contact_facebook"></a></i></li>
+                        <li><i class="fa fa-twitter"><a href="@Model._contact[0].contact_twitter"></a></i></li>
+                        <li><i class="fa fa-google-plus"><a href="@Model._contact[0].contact_google"></a></i></li>
+                        <li><i class="fa fa-instagram"><a href="@Model._contact[0].contact_intagram"></a></i></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-xs-12 ">
+                    <div class="text-center text-warning dic">
+                        <h3 class="text-center">Bizimle Elaqe</h3>
+                        <a href="#">@Model._contact[0].contact_phone</a><br>
+                        <a href="#">@Model._contact[0].contact_email</a>
+                        <p>@Model._contact[0].contact_address</p>
+                        <p>@Model._contact[0].contact_work_time</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <style>
+        #footer ul > li {
+            float: left;
+            list-style: none;
+            padding: 64px 0 1px 74px;
+            transition: all 0.3s linear;
+            font-size: 45px;
+            color: lightsteelblue;
+        }
+
+        #footer .icons {
+            margin-left: 1px;
+        }
+    </style>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
+            integrity="sha256-T0Vest3yCU7pafRw9r+settMBX6JkKN06dqBnpQ8d30="
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="~/Travelim/js/javas.js"></script>
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA13wmwA8DoyJZayKbqZ6KdAAbsqvUQMww&libraries=places"></script>
+    <script type="text/javascript">
+        var search = new google.maps.places.SearchBox(document.getElementById('search'));
+        google.maps.event.addListener(search, 'place_changer', function () {
+            var places = searchBox.getPlaces();
+            var bounds = new google.maps.LatLnBounds();
+            var i, place;
+            for (i = 0; places = places[i]; i++) {
+                console.log(place.geometry.location);
+                bounds.extend(place.geometry.location);
+                marker.setPosition(place.geometry.location);
+            }
+            map.fitBounds(bounds);
+            map.Setzoom(15);
+        });
+    </script>
+   
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
